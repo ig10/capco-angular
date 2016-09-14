@@ -2,10 +2,19 @@
 
 import * as angular from 'angular';
 import 'angular-mocks';
-import {User, user} from './user';
+import {form} from './form';
 
 describe('Form', () => {
-  it('Should LOAD!', () => {
-    expect(true).toBe(true);
+  beforeEach(() => {
+    angular
+      .module('capcoApp', ['app/form.html'])
+      .component('capcoApp', form);
+    angular.mock.module('capcoApp');
   });
+
+  it('Should render a form', angular.mock.inject(($rootScope: ng.IRootScopeService, $compile: ng.ICompileService) => {
+    const element = $compile('<custom-form></custom-form>')($rootScope);
+    $rootScope.$digest();
+    expect(element.find('form').length).toEqual(1);
+  }));
 });

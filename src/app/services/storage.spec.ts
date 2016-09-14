@@ -1,16 +1,11 @@
 /// <reference path="../../../typings/index.d.ts" />
 
+import * as angular from 'angular';
 import 'angular-mocks';
 import {User} from '../user';
 import {IStorage} from './storage';
 
 describe('Storage', () => {
-  it('Should LOAD!', () => {
-    expect(true).toBe(true);
-  });
-});
-
-/*describe('Storage', () => {
   let storage: IStorage;
   let testUser: User;
 
@@ -45,4 +40,3 @@ describe('Storage', () => {
   });
 
 });
-*/

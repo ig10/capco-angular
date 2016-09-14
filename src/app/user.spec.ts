@@ -5,12 +5,6 @@ import 'angular-mocks';
 import {User, user} from './user';
 
 describe('User', () => {
-  it('Should LOAD!', () => {
-    expect(true).toBe(true);
-  });
-});
-
-/*describe('User', () => {
   const app: string = 'capcoUser';
   beforeEach(() => {
     angular
@@ -37,4 +31,4 @@ describe('User', () => {
     expect(testUser).toContain(User);
   });
 
-});*/
+});
