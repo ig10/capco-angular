@@ -1,0 +1,32 @@
+<div layout="row" layout-align="center none">
+  <h1>
+    <ng-md-icon icon="account_circle" style="fill: gray" size="76"></ng-md-icon>
+  </h1>
+</div>
+
+<div>
+  <div flex="50">
+    <label for="">
+      <strong>Full Name:</strong> <span>{{ $ctrl.user.firstName + ' ' + $ctrl.user.lastName }}</span>
+    </label>
+  </div>
+  <div flex>
+    <label for="">
+      <strong>Email:</strong> <span>{{ $ctrl.user.email }}</span>
+    </label>
+  </div>
+
+  <div flex="50">
+    <label for="">
+      <strong>Gender:</strong> <span>{{ $ctrl.user.gender }}</span>
+    </label>
+  </div>
+  <div flex>
+    <label for="">
+      <strong>Birthday:</strong> <span>{{ $ctrl.user.birthDate }}</span>
+    </label>
+  </div>
+
+  <md-button class="md-raised md-warn" ui-sref="home">Back</md-button>
+
+</div>

@@ -1,0 +1,51 @@
+<form name="userForm">
+
+  <h2><ng-md-icon icon="person_add" style="fill: gray" size="26"></ng-md-icon> User Sign Up</h2>
+
+  <md-input-container class="md-block" flex-gt-sm="">
+    <label>First name</label>
+    <input ng-model="$ctrl.user.firstName" name="firstName" md-maxlength="15" ng-pattern="/^[A-Za-z0-9\s]+$/" required>
+    <div ng-messages="userForm.firstName.$error">
+      <div ng-message="required">This is required</div>
+      <div ng-message="md-maxlength">The email must be less than 16 characters long</div>
+      <div ng-message="pattern">No special characters allowed</div>
+    </div>
+  </md-input-container>
+
+  <md-input-container class="md-block" flex-gt-sm="">
+    <label>Last name</label>
+    <input ng-model="$ctrl.user.lastName" name="lastName" required>
+    <div ng-messages="userForm.lastName.$error">
+      <div ng-message="required">This is required</div>
+    </div>
+  </md-input-container>
+
+  <md-input-container class="md-block" flex-gt-sm="">
+    <label>Gender</label>
+    <md-select ng-model="$ctrl.user.gender" name="gender">
+      <md-option ng-repeat="gender in $ctrl.genders" value="{{ gender }}">
+        {{ gender }}
+      </md-option>
+    </md-select>
+  </md-input-container>
+
+  <md-input-container class="md-block" flex-gt-sm="">
+    <label>Email</label>
+    <input ng-model="$ctrl.user.email" name="email" type="email" ng-pattern="/.+@gmail\.com/">
+    <div ng-messages="userForm.email.$error">
+      <div ng-message="email">This is not a valid email</div>
+      <div ng-message="pattern">Only Gmail is allowed</div>
+    </div>
+  </md-input-container>
+
+  <md-input-container class="md-block" flex-gt-sm="">
+    <label>Birth date</label>
+    <md-datepicker md-hide-icons="calendar" ng-model="$ctrl.user.birthDate" name="birthDate"></md-datepicker>
+  </md-input-container>
+
+  <div layout="row" layout-align="space-between center">
+    <md-button class="md-raised md-warn" ng-click="$ctrl.clear();">Clear</md-button>
+    <md-button class="md-raised md-primary" ng-disabled="userForm.$invalid" ng-click="userForm.$valid && $ctrl.save();">Save</md-button>
+  </div>
+
+</form>
